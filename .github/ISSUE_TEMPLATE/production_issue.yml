@@ -1,5 +1,5 @@
-name: "🚨 Issues Tracker"
-description: 프로덕션 환경의 이슈를 등록하고 관리합니다.
+name: "🚨 iStaging Asia 이슈"
+description: 프로덕션의 이슈를 등록하고 관리합니다.
 labels: ["production"]
 body:
   - type: markdown
