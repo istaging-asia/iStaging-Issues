@@ -1,100 +1,64 @@
 name: "🚨 Production Issue (프로덕션 이슈)"
-description: 프로덕션 환경에서 발생한 문제를 등록하고 담당자의 해결 및 최종 승인 결과를 기록합니다.
+description: 프로덕션 환경의 이슈를 등록하고 프로세스에 따라 관리합니다.
 title: "[PROD] "
-labels: ["type: bug", "severity: medium"]
+labels: ["production"]
 body:
   - type: markdown
     attributes:
       value: |
-        ## 📋 프로덕션 이슈 처리 프로세스
-        > **프로세스 순서**: `1단계: 문제 등록` ➡️ `2단계: 담당자 해결` ➡️ `3단계: 최종 승인자 검증 및 배포`
-        > 
-        > 문제를 발견하신 분은 아래 입력란을 빠짐없이 채워주세요. (2단계 및 3단계 내용은 이슈가 생성된 이후 담당자가 직접 본문을 수정하여 작성합니다.)
+        ## 📋 프로덕션 이슈 등록
+        > 아래 항목을 작성하여 문제를 등록해 주세요. 등록된 이슈는 해결 및 승인 절차를 거치게 됩니다.
 
   - type: dropdown
-    id: severity
+    id: issue_type
+    attributes:
+      label: "🏷️ 종류 (Type)"
+      description: 발생한 이슈의 종류를 선택해 주세요.
+      options:
+        - "Bug (버그/오류)"
+        - "Outage (장애/서비스 중단)"
+        - "Improvement (개선 사항)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
     attributes:
       label: "🚨 우선순위 (Priority)"
-      description: 문제의 심각도와 긴급성을 파악하기 위해 적절한 등급을 선택해 주세요.
       options:
-        - "🔥 High (긴급 장애 - 비즈니스 영향이 크며 즉시 대응 필요)"
-        - "⚡ Medium (일반 오류 - 주요 기능 오작동이나 비즈니스 영향 있음)"
-        - "🌱 Low (단순 개선 - 사소한 화면 깨짐이나 단순 텍스트 수정)"
+        - "High (긴급)"
+        - "Medium (보통)"
+        - "Low (낮음)"
     validations:
       required: true
 
   - type: input
-    id: datetime
+    id: assignee
     attributes:
-      label: "⏰ 발생 일시 (Occurred Time)"
-      description: 문제가 발생한 시각을 적어주세요.
-      placeholder: "예: 2026-06-22 15:30 (KST)"
-    validations:
-      required: true
-
-  - type: input
-    id: impact_scope
-    attributes:
-      label: "🌐 영향 범위 (Impact Scope)"
-      description: 이 문제로 인해 영향을 받는 영역이 어디인지 기재해 주세요.
-      placeholder: "예: 전체 사용자 / iOS 앱 / 특정 API (/api/v1/auth) / 백오피스"
+      label: "👤 담당자 지정 (Assignee)"
+      placeholder: "예: @username 또는 담당자 이름"
     validations:
       required: true
 
   - type: textarea
     id: description
     attributes:
-      label: "📝 문제 현상 및 상세 설명"
-      description: 발생한 문제 현상을 자세히 적어주세요.
-      placeholder: "예: 로그인 버튼을 눌러도 반응이 없으며, 개발자 도구 콘솔에 500 Internal Server Error가 발생합니다."
+      label: "📝 문제점 (Description)"
+      description: 어떤 문제점이 발생했는지 적어주세요.
+      placeholder: "예: 프로필 이미지 업로드 시 500 에러가 발생하며 업로드가 실패함"
     validations:
       required: true
-
-  - type: textarea
-    id: reproduction_steps
-    attributes:
-      label: "🔄 재현 경로 (Steps to Reproduce)"
-      description: 문제를 재현하기 위한 구체적인 순서를 순서대로 적어주세요.
-      value: |
-        1. 
-        2. 
-        3. 
-    validations:
-      required: true
-
-  - type: textarea
-    id: logs
-    attributes:
-      label: "💻 에러 로그 또는 콘솔 에러 (Error Logs)"
-      description: 서버 백엔드 에러 로그나 브라우저 콘솔 에러 등의 로그 정보를 복사해서 붙여넣어 주세요.
-      render: bash
 
   - type: markdown
     attributes:
       value: |
         ---
-        
-        ## 🛠️ 이후 진행 단계 가이드 (이슈 생성 후 편집할 영역)
-        > **안내**: 아래 영역은 이슈가 생성된 이후 **담당 개발자**와 **최종 승인자**가 이슈 우측 상단의 `Edit` 버튼을 클릭하여 작성하는 영역입니다.
+        ## 🔄 해결 및 승인 절차 (이슈 등록 이후 작성)
 
-        ### 2️⃣ [담당자 해결] 원인 분석 및 조치 사항 (Developer)
-        * **원인 분석 (Root Cause)**:
-          - (상세 분석 내용 기술)
-        * **조치 사항 (Resolution)**:
-          - [ ] 로컬/개발 환경 반영 완료
-          - [ ] 스테이징 환경 반영 완료
-          - **상세 조치 내역**: 
-          - **수정 Pull Request 또는 Commit Link**: 
-        * **사이드 이펙트 및 확인 사항**:
-          - 본 수정사항이 다른 기능에 미칠 영향이나 우려 요소를 기재하세요.
+        ### 2️⃣ [담당자 해결]
+        * **해결 방법**: 
+        * **진행 완료**: [ ] 개발/테스트 완료 (PR/Commit Link: )
 
-        ### 3️⃣ [최종 승인자 결과] 검증 및 배포 승인 (Approver)
-        * **최종 검증자 (Approver)**: @
-        * **검증 결과 및 시나리오**:
-          - [ ] 시나리오 1: (시나리오 설명 및 성공 여부)
-          - [ ] 시나리오 2: 
-        * **최종 승인 상태**:
-          - [ ] **승인 (Approved)** - 운영 배포 진행 가능
-          - [ ] **반려 (Rejected)** - 추가 수정 필요 (이유: )
-        * **배포 예정일 (Target Date)**: 202X-XX-XX
-        * **배포 완료 여부**: [ ] 완료 (Deployed)
+        ### 3️⃣ [최종 승인자 결과]
+        * **최종 승인 여부**: [ ] 승인 (Approved) / [ ] 반려 (Rejected)
+        * **승인자 및 결과 피드백**: 
