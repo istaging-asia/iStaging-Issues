@@ -11,7 +11,8 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: "📝 문제점 (Description)"
+      label: |
+      "문제점 (Description)"
       
       placeholder: "예: 로그인 버튼을 눌러도 반응이 없으며, 콘솔에 500 에러가 표시됩니다.\n 하단의 작업자와 이슈 종류를 지정해주세요."
     validations:
