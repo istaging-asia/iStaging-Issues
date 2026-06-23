@@ -1,0 +1,55 @@
+name: "📱 테스트 피드백"
+description: 신규 앱 실사용 테스트 중 발견한 이슈를 등록합니다.
+title: "[테스트] "
+labels: ["test-feedback"]
+body:
+  - type: dropdown
+    id: platform
+    attributes:
+      label: "플랫폼"
+      options:
+        - "iOS"
+        - "Android"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: "기기 / OS 버전"
+      placeholder: "예: iPhone 14, iOS 17.2 / Galaxy S23, Android 14"
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: "앱 버전 (설치한 빌드)"
+      placeholder: "예: v1.0.3"
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "심각도"
+      options:
+        - "🔴 못 쓸 정도 (크래시/먹통)"
+        - "🟠 불편함 (기능은 되지만 이상함)"
+        - "🟡 사소함 (디자인/오타 등)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 현상 / 재현 방법"
+      placeholder: |
+        무슨 일이 있었는지, 어떻게 하면 다시 발생하는지 적어주세요.
+        예: 영상 업로드 후 자막 버튼 누르면 앱이 꺼짐
+    validations:
+      required: true
+
+  - type: textarea
+    id: media
+    attributes:
+      label: "📷 스크린샷 / 화면 녹화"
+      description: "캡처/녹화 있으면 꼭 첨부해주세요. (모바일 버그는 영상이 제일 도움돼요)"

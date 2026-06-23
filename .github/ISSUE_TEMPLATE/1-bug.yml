@@ -1,0 +1,54 @@
+name: "🐛 Bug"
+description: 버그 제보
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "우선순위"
+      options:
+        - "🔴 Critical"
+        - "🟠 High"
+        - "🟡 Medium"
+        - "🟢 Low"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: platform
+    attributes:
+      label: "발생 플랫폼"
+      options:
+        - label: "Web"
+        - label: "iOS"
+        - label: "Android"
+        - label: "VR"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 설명"
+      description: "어떤 버그인지, 어떻게 재현되는지 작성해 주세요."
+      placeholder: "예: 로그인 버튼 클릭 시 무반응, 콘솔에 500 에러 발생"
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: "✅ 작업할 내용"
+      description: "수정이 필요한 항목을 체크박스로 작성해주세요."
+      value: |
+        - [ ] 
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: "👤 참고 자료"
+      description: "에러 로그, 스크린샷, 영상 링크 등을 첨부해 주세요."

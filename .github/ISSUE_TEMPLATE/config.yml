@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 질문 / 문의
+    url: https://github.com/orgs/istaging-asia/discussions
+    about: 버그/기능 추가가 아닌 단순 질문은 여기로 남겨주세요.
