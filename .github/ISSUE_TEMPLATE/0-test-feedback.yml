@@ -13,19 +13,21 @@ body:
     validations:
       required: true
 
-  # - type: input
-  #   id: device
-  #   attributes:
-  #     label: "기기 / OS 버전"
-  #     placeholder: "예: iPhone 14, iOS 17.2 / Galaxy S23, Android 14"
-  #   validations:
-  #     required: true
+  - type: input
+    id: author
+    attributes:
+      label: "작성자"
+      placeholder: "예: 홍길동"
+    validations:
+      required: true
 
-  # - type: input
-  #   id: app-version
-  #   attributes:
-  #     label: "앱 버전 (설치한 빌드)"
-  #     placeholder: "예: v1.0.3"
+  - type: input
+    id: device
+    attributes:
+      label: "기기 이름"
+      placeholder: "예: iPhone 14 / Galaxy S23"
+    validations:
+      required: true
 
   - type: dropdown
     id: severity
