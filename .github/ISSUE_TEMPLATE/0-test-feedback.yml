@@ -56,3 +56,9 @@ body:
     attributes:
       label: "📷 스크린샷 / 화면 녹화"
       description: "캡처/녹화 있으면 꼭 첨부해주세요. (모바일 버그는 영상이 제일 도움돼요)"
+
+  - type: textarea
+    id: Improvements
+    attributes:
+      label: "개선 사항"
+      description: "개선 사항이 있으면 적어주세요."
