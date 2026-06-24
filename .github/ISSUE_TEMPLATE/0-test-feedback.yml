@@ -18,6 +18,7 @@ body:
       options:
         - "iOS"
         - "Android"
+        - "PC Web"
     validations:
       required: true
 
@@ -25,7 +26,7 @@ body:
     id: device
     attributes:
       label: "기기 이름"
-      placeholder: "예: iPhone 14 / Galaxy S23"
+      placeholder: "예: iPhone 14 / Galaxy S23 / Chrome"
     validations:
       required: true
 
