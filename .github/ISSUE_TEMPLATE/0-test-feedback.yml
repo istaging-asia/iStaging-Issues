@@ -3,6 +3,14 @@ description: 신규 앱 실사용 테스트 중 발견한 이슈를 등록합니
 title: "[테스트] "
 labels: ["test-feedback"]
 body:
+  - type: input
+    id: author
+    attributes:
+      label: "작성자"
+      placeholder: "예: 홍길동"
+    validations:
+      required: true
+
   - type: dropdown
     id: platform
     attributes:
@@ -10,14 +18,6 @@ body:
       options:
         - "iOS"
         - "Android"
-    validations:
-      required: true
-
-  - type: input
-    id: author
-    attributes:
-      label: "작성자"
-      placeholder: "예: 홍길동"
     validations:
       required: true
 
